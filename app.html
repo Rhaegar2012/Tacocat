@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A coding Project by Jose Tellez</title>
+    <title>TacoCat: A coding Project by Jose Tellez</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
 <!--Nav Section-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/default-monochrome-white-icon.svg" width="60" height="24" class="d-inline align-text-bottom"> APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/default-monochrome-white-icon.svg" width="60" height="24" class="d-inline align-text-bottom">TacoCat</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,9 +51,31 @@
 <!--Main Section-->
 <main class="flex-shrink-0">
     <div class="container">
+        <div class="row mt-2">
+            <div class="col">
+                <h2>TacoCat: A coding project</h2>
+                <div>
+                    Taco Cat is a palindrome. A palindrome is a word, phrase or sequence 
+                </div>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="stringInput" class="form-label">Enter word, sentece or phrase</label>
+                            <input id="stringInput" class="form-control" placeholder="TacoCat">
+                        </div>
+                        <div class="gy-2">
+                            <button id="reverseButton" class="btn btn-dark">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="jumbotron" id="jumbotronOutput">
 
+                </div>
+            </div>
+        </div>
     </div>
-
 </main>
 <footer class="footer mt-auto py-3 bg-dark  sticky-footer">
     <div class="container-fluid">
@@ -79,6 +101,11 @@
      
     </div>
 </footer>
+<template id="jumboTemplate">
+    <h2 class="display-4">Well done!</h2>
+    <hr class="my-4">
+    <p></p>
+</template>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
 integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
 </script>
@@ -88,6 +115,9 @@ integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0Ec
 <!--Link to javascript scripts-->
 <script src="js/site.js">
 
+</script>
+<script>
+    document.getElementById("reverseButton").addEventListener("click",getValues);
 </script>
 </body>
 </html>
