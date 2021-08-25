@@ -41,7 +41,7 @@
                     <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/Rhaegar2012/Tacocat">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="https://josetellezdev.netlify.app/">About</a>
@@ -58,17 +58,102 @@
             <div class="col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        //Call Hello World 
-                        function HelloWorld(){
-                            alert("hello world");
-                        }
+                        //gets values from the page
+function getValues(){
+    let sequence=document.getElementById("stringInput").value;
+    let processedSequence=processString(sequence);
+    let reversedSequence=reverseString(processedSequence);
+    let check=checkPalindrome(processedSequence,reversedSequence);
+    displayData(check,reversedSequence);
+}
+//Processes the sequence to remove spaces , capital letters and special characters
+function processString(string){
+    let processedString = '';
+    // detects if there are special characters
+    let specialCharacters='/[!@#$%^&*()_+\-=\[\]{};:"\\|,.<>\/?]+/';
+    for(let i=0; i<=string.length-1;i++){
+        if(!(specialCharacters.includes(string[i]))){
+            processedString+=string[i];
+        }
+    }
+    processedString=processedString.toLowerCase();
+    return processedString;
+}
+function reverseString(string){
+    let reversedString='';
+    for(let i=string.length-1;i>=0;i--){
+        reversedString+=string[i];
+    }
+    return reversedString;
+
+}
+function checkPalindrome(string, reversedString){
+    if(string==reversedString){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+function displayData(checkResult,reversedString){
+    let jumboTron=document.getElementById("jumbotronOutput");
+    let jumboTemplate=document.getElementById("jumboTemplate");
+    let jumboElement=document.importNode(jumboTemplate.content,true);
+    let jumboText=jumboElement.querySelectorAll("p");
+    if(checkResult){
+        jumboText[0].textContent=`the string is a palindrome, the reversed string is ${reversedString}`;
+    }else{
+        jumboText[0].textContent=`the string is not a palindrome, the reversed string is ${reversedString}`;
+    }
+    jumboTron.appendChild(jumboElement);
+    
+    
+}
                     </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p> The Code is structed in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                <p> The Code is structed in five functions.</p>
+                <h5>getValues()</h5>
+                <p>
+                    Input: None <br>
+                    Function: <br>
+                    Collects the string input from the website form and runs the palindrome algorithm <br>
+                    Output: <br>
+                    None<br>
+                </p>
+                <h5>processString(string)</h5>
+                <p>
+                    Input: string<br>
+                    Function:<br>
+                    Lower case the string and removes special characters by comparing to a predefined character list<br>
+                    Output:<br>
+                    processedString , lower case and no special characters
+                </p>
+                <h5>reverseString(string)</h5>
+                <p>
+                    Input: string, previously processed <br>
+                    Function: <br>
+                    Reverses the string that was previously processed (lower cased and special characters removed)<br>
+                    Output:<br>
+                    Reversed string<br>
+                </p>
+                <h5>checkPalindrome(processedString, reversedString)</h5>
+                <p>
+                    Input: processed string , reversed string <br>
+                    Function: <br>
+                    Compares the processed string and reversed string , returns true if they are equal<br>
+                    Output: <br>
+                    True if the strings are equal , false if they are not <br>
+                </p>
+                <h5>displayData()</h5>
+                <p>
+                    Input: checkResult , bool ,reversed string <br>
+                    Function: <br>
+                    Utilizes an html template to display the algorithm's result in a jumbotron element<br>
+                    Output:<br>
+                    None 
+                </p>
             </div>
         </div>
     </div>

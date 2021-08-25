@@ -37,6 +37,7 @@ function checkPalindrome(string, reversedString){
 }
 function displayData(checkResult,reversedString){
     let jumboTron=document.getElementById("jumbotronOutput");
+    jumboTron.innerHTML="";
     let jumboTemplate=document.getElementById("jumboTemplate");
     let jumboElement=document.importNode(jumboTemplate.content,true);
     let jumboText=jumboElement.querySelectorAll("p");
