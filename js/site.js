@@ -41,12 +41,11 @@ function displayData(checkResult,reversedString){
     let jumboElement=document.importNode(jumboTemplate.content,true);
     let jumboText=jumboElement.querySelectorAll("p");
     if(checkResult){
-        jumboText.textContent=`the string is a palindrome, the reversed string is ${reversedString}`;
+        jumboText[0].textContent=`the string is a palindrome, the reversed string is ${reversedString}`;
     }else{
-        jumboText.textContent=`the string is a palindrome, the reversed string is ${reversedString}`;
+        jumboText[0].textContent=`the string is not a palindrome, the reversed string is ${reversedString}`;
     }
-    jumboTron.appendChild(jumboText);
-
-
-
+    jumboTron.appendChild(jumboElement);
+    
+    
 }
